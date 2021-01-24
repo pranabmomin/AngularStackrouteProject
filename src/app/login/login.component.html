@@ -1,0 +1,31 @@
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow-lg mt-7 m-5" style="width: 49vw;">
+                <div class="card-header">
+                    <h5 class="display-4">Login</h5>
+                </div>
+                <div style="background-color: khaki;" class="card-body text-center">
+                    <form (submit)="login()" [formGroup]="loginForm">
+                        <input type="text" class="form-control" placeholder="Email" [class.is-invalid]="email.invalid && email.touched" formControlName="email" [formControl]="email">
+                        <span *ngIf="email.touched">
+                            <small *ngIf="email.hasError('required')" class="text-danger">ID is required</small>
+                            <small *ngIf="email.hasError('email')" class="text-danger">Give Valid Email</small>
+                        </span>
+                        <br>
+                        <input type="password" class="form-control" placeholder="Password" aria-label="Recipient's username" aria-describedby="basic-addon2" [class.is-invalid]="password.invalid && password.touched" formControlName="password" [formControl]="password">
+                        <span *ngIf="password.touched">
+                            <small *ngIf="password.hasError('required')" class="text-danger">Password is required</small>
+                        </span>
+                        <br>
+                        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-success" >Log In</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <span><small>Create new Account</small></span>
+                    <a class="btn btn-success float-end" routerLink='/signup'>Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="search">
+    <div class="container">
+        <div id="searchbar" class="row rounded shadow-lg mt-2 p-2">
+            <div class="col mt-2">
+                <input class="form-control" name="q" type="text" placeholder="search here" ngModel #q="ngModel">
+            </div>
+            <div class="col mt-2">
+                <select class="form-select" name="option" [(ngModel)]="selectedValue">
+                    <option value="id" selected>id</option>
+                    <option value="category">category</option>
+                </select>
+            </div>
+            <button style="height: 40px;width: 40px;" class="btn mt-2 btn-success rounded-circle" (click)="search(q.value)"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <!-- <div class="col mt-2 text-center">
+                <button style="height: 40px;width: 40px;" class="btn btn-success rounded-circle" (click)="search(q.value,option.value)"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col" *ngFor="let product of result">
+                <div class="card shadow-lg m-2" style="width: 18rem;height: 30rem;border-width: 5px;border-color:cadetblue;">
+                    <img src={{product.image}} style="width: 17rem;height: 20rem;" class="card-img-top">
+                    <div class="card-img-overlay">
+                        <span class="badge bg-danger">ID: {{product.id}}</span>
+                        <div class="float-end"><button (click)="addToCart(product)" class="btn"><span class="badge bg-danger">Add to Cart</span></button></div>
+                    </div>
+                    <div style="background-color: khaki;" class="card-body">
+                      <h5 class="card-title">{{product.title|shorten}}</h5>
+                      <p class="card-text">Category: {{product.category}}</p>
+                      <small>Price: {{product.price|currency:'USD'}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

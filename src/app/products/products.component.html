@@ -1,0 +1,19 @@
+<div class="container">
+    <h2 style="background-color: grey;font-family:sans-serif;" class="shadow-lg mt-2 rounded"><b>All Products:</b></h2>
+    <div class="row mb-5">
+        <div class="col"  *ngFor="let product of products">
+            <div class="card shadow-lg m-2" style="width: 18rem;height: 30rem;border-width: 5px;border-color:cadetblue;">
+                <img src={{product.image}} style="width: 17rem;height: 20rem;" class="card-img-top">
+                <div class="card-img-overlay">
+                    <span class="badge bg-success">ID: {{product.id}}</span>
+                    <div class="float-end"><button (click)="addToCart(product)" class="btn"><span class="badge bg-danger">Add to Cart</span></button></div>
+                </div>
+                <div style="background-color: khaki;" class="card-body">
+                  <h5 class="card-title">{{product.title|shorten}}</h5>
+                  <p class="card-text">Category: {{product.category}}</p>
+                  <small>Price: {{product.price|currency:'USD'}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+.card-header,.card-footer{
+    background-color: lightsalmon;
+}
+.card{
+    border-color: black;
+    border-width: 3px;
+}
